@@ -92,9 +92,9 @@ export default function MainNavigation() {
                   Tin tức
                 </Link>
                 <Link
-                  href="/introduction"
+                  href="/contact"
                   className={`nav-link ${
-                    router.pathname === "/programs" && "active"
+                    router.pathname === "/contact" && "active"
                   }`}
                 >
                   Liên hệ

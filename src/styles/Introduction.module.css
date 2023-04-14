@@ -1,0 +1,17 @@
+.title {
+  border-bottom: 1px solid #ddd;
+  /* color: rgba(0, 0, 0, 0.8); */
+}
+.introduction-page h5 {
+  text-decoration: underline;
+  font-style: italic;
+}
+.introduction-page {
+  margin: 5rem auto;
+}
+.space-ads {
+  /* border-left: 1px solid #ddd; */
+}
+.introduction-page p {
+  color: rgba(0, 0, 0, 0.55);
+}

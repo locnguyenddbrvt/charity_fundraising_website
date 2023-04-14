@@ -147,3 +147,6 @@ a {
   cursor: pointer;
   border-bottom: 1px dashed rgba(255, 255, 255, 1);
 }
+.text-green-800 {
+  color: #02735e;
+}
