@@ -1,0 +1,57 @@
+.modal-auth {
+  color: rgba(0, 0, 0, 0.7);
+}
+.form {
+  width: 60%;
+  /* margin: 0 auto; */
+}
+.form label {
+  font-size: 0.75rem;
+}
+.form input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+.form input::placeholder {
+  color: #ddd;
+}
+.form input:focus {
+  outline: 2px solid #02735e;
+}
+.submit-btn {
+  width: 100%;
+  margin: 0.75rem 0;
+}
+.login-3rd-btns {
+  width: 60%;
+}
+.login-3rd-btns button {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+.login-3rd-btns svg {
+  width: 1.5rem;
+  margin-right: 2rem;
+  margin-left: 0.5rem;
+}
+.login-3rd-btns p {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 0;
+}
+.modal-auth p strong:hover {
+  cursor: pointer;
+}
+.overplay {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  color: rgb(255, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+}
+.overplay svg {
+  width: 1rem;
+}

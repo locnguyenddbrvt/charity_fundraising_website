@@ -1,4 +1,6 @@
 import { Container } from "react-bootstrap";
+import React from "react";
+import AdSense from "react-adsense";
 
 import RootLayout from "../RootLayout/RootLayout";
 
@@ -26,7 +28,16 @@ export default function PageLayout({ children, title }) {
           >
             {children}
           </div>
-          <div className={`col-md-2`}>ADs space</div>
+          <div className={`col-md-2`}>
+            <p>ADs space</p>
+            <AdSense.Google
+              client="1543717981390827"
+              slot="8719506158"
+              style={{ display: "block" }}
+              format="auto"
+              responsive="true"
+            />
+          </div>
         </Container>
       </RootLayout>
     </>

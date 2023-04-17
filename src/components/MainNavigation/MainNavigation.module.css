@@ -1,0 +1,13 @@
+.dropdown {
+  width: 100%;
+  padding: 0.25rem 0.25rem;
+}
+.dropdown svg {
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+.dropdown-el {
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+}

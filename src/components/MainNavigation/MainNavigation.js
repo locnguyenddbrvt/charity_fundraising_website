@@ -1,20 +1,45 @@
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-// import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useRouter } from "next/router";
+import React from "react";
+import Dropdown from "react-bootstrap/Dropdown";
 
-import styles from "./MainNavigation.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGear,
+  faRightFromBracket,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import styles from "./MainNavigation.module.css";
+import { authActions } from "@/store/auth";
+import axios from "axios";
 
-export default function MainNavigation() {
+export default function MainNavigation({
+  handleShowRegister,
+  handleShowLogin,
+}) {
   const router = useRouter();
+  const dispatch = useDispatch();
   const modeLayout = "light";
   const expand = "xl";
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const userLogin = useSelector((state) => state.auth.userLogin);
+
+  const logoutHandle = () => {
+    axios
+      .post("/api/user/logout")
+      .then((response) => {
+        dispatch(authActions.logout());
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <Navbar
@@ -99,45 +124,54 @@ export default function MainNavigation() {
                 >
                   Liên hệ
                 </Link>
-                {/* <Nav.Link href="/">Trang chủ</Nav.Link>
-                <Nav.Link href="/">Trang chủ</Nav.Link>
-                <Nav.Link href="/introduction">Giới thiệu</Nav.Link>
-                <Nav.Link href="#actiosdg">Chương trình</Nav.Link>
-                <Nav.Link href="#actifosdg">Đóng góp</Nav.Link>
-                <Nav.Link href="#actifdsgsdgosdg">Báo cáo tài chính</Nav.Link>
-                <Nav.Link href="#actifossdgdsdg">Tin tức</Nav.Link>
-                <Nav.Link href="#actifdsosdg">Liên hệ</Nav.Link> */}
-                {/* <NavDropdown
-                  title="Dropdown"
-                  id={`offcanvasNavbarDropdown-expand-${expand}`}
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown> */}
               </Nav>
-              <div className="d-flex gap-2">
-                <Button type="button" variant="success">
-                  Register
-                </Button>
-                <Button type="button" variant="outline-success">
-                  Log In
-                </Button>
-              </div>
-              {/* <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form> */}
+              {userLogin ? (
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {userLogin.email}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className={`${styles["dropdown"]}`}>
+                    <Dropdown.Item
+                      className={`${styles["dropdown-el"]}`}
+                      href="#/action-1"
+                    >
+                      <FontAwesomeIcon icon={faUser} />
+                      Thông tin tài khoản
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      className={`${styles["dropdown-el"]}`}
+                      href="#/action-2"
+                    >
+                      <FontAwesomeIcon icon={faGear} />
+                      Cài đặt
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      className={`${styles["dropdown-el"]}`}
+                      onClick={logoutHandle}
+                    >
+                      <FontAwesomeIcon icon={faRightFromBracket} />
+                      Đăng xuất
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <div className="d-flex gap-2">
+                  <Button
+                    type="button"
+                    variant="success"
+                    onClick={() => handleShowRegister()}
+                  >
+                    Register
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline-success"
+                    onClick={() => handleShowLogin()}
+                  >
+                    Log In
+                  </Button>
+                </div>
+              )}
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

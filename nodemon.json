@@ -1,0 +1,8 @@
+{
+  "env": {
+    "DOMAIN": "htpp://localhost:3000",
+    "MONGO_USER": "locnguyenddbrvt",
+    "MONGO_PASSWORD": "Aas123123",
+    "MONGO_DATABASE": "Đồ-án-APP"
+  }
+}
