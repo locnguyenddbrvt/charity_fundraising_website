@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -202,6 +202,7 @@ export default function Register({ show, fullscreen, onHide, switchHandle }) {
               </svg>
               <span>Tiếp tục với Google</span>
             </Button>
+            <div id="btnGoogleSignup"></div>
             <p>Bằng cách tiếp tục, bạn đồng ý với</p>
             <p>
               <strong>Điều khoản dịch vụ</strong> Mở một tab mới của Cây Xanh và

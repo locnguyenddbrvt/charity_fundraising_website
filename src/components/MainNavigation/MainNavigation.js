@@ -28,7 +28,6 @@ export default function MainNavigation({
   const dispatch = useDispatch();
   const modeLayout = "light";
   const expand = "xl";
-  const isAuth = useSelector((state) => state.auth.isAuth);
   const userLogin = useSelector((state) => state.auth.userLogin);
 
   const logoutHandle = () => {

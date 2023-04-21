@@ -55,3 +55,11 @@
 .overplay svg {
   width: 1rem;
 }
+#signInDiv {
+  background-color: #02735e;
+}
+.fbLoginBtn {
+  margin-top: 1rem;
+  background-color: var(--bs-primary);
+  color: white;
+}

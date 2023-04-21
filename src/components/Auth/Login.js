@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-
-import styles from "./Auth.module.css";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authActions } from "@/store/auth";
+import FacebookLogin from "react-facebook-login";
+import GoogleLogin from "react-google-login";
+
+import styles from "./Auth.module.css";
 
 export default function Login({ show, fullscreen, onHide, switchHandle }) {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -64,6 +66,7 @@ export default function Login({ show, fullscreen, onHide, switchHandle }) {
         });
     }
   };
+
   return (
     <>
       <Modal
@@ -172,6 +175,23 @@ export default function Login({ show, fullscreen, onHide, switchHandle }) {
               </svg>
               <span>Tiếp tục với Google</span>
             </Button>
+            <div id="signInDiv">gd</div>
+            {/* <FacebookLogin
+              appId="246513227903376"
+              cssClass={styles["fbLoginBtn"]}
+              autoLoad={false}
+              fields="name,email,picture"
+              onClick={() => {}}
+              callback={responseFacebook}
+              icon={<FontAwesomeIcon icon={faFacebook} />}
+            /> */}
+            {/* <GoogleLogin
+              clientId="661446037204-18vco7nln82nk8ftnj04d9vqkbgv3veg.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
+            /> */}
             <p>Bằng cách tiếp tục, bạn đồng ý với</p>
             <p>
               <strong>Điều khoản dịch vụ</strong> Mở một tab mới của Cây Xanh và
